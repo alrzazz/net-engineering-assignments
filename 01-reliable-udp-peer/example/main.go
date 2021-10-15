@@ -14,13 +14,13 @@ func main() {
 	logger := log.New(os.Stdout, "socket-log ", log.Lmicroseconds)
 
 	// create ReliableUdpPeer and listen
-	pa, err := rup.NewReliableUdpPeer(logger, "Alice", "127.0.0.1:6666", 2)
+	pa, err := rup.NewReliableUdpPeerAndListen(logger, "Alice", "127.0.0.1:6666", 2)
 	if err != nil {
 		panic(err)
 	}
 
 	// create ReliableUdpPeer and listen
-	pb, err := rup.NewReliableUdpPeer(logger, "Bob", "127.0.0.1:5555", 2)
+	pb, err := rup.NewReliableUdpPeerAndListen(logger, "Bob", "127.0.0.1:5555", 2)
 	if err != nil {
 		panic(err)
 	}

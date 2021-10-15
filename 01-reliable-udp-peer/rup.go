@@ -26,7 +26,7 @@ type ReliableUdpPeer struct {
 // peerName is name of peer for debug info.
 // listenAddr is address that peer listen for incoming messages.
 // sendLimit number of messages that peer can send without recieved ack.
-func NewReliableUdpPeer(logger *log.Logger, peerName string, listenAddr string, sendLimit int) (*ReliableUdpPeer, error) {
+func NewReliableUdpPeerAndListen(logger *log.Logger, peerName string, listenAddr string, sendLimit int) (*ReliableUdpPeer, error) {
 	// create ReliableUdpPeer
 	p := &ReliableUdpPeer{logger, peerName, []string{}, make(chan interface{}, sendLimit), sync.WaitGroup{}}
 	// lisnten on address
